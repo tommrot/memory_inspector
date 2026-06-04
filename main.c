@@ -5,6 +5,7 @@
 void *analyze(char **argv);
 void print_bits(void *value_ptr, size_t size);
 void print_hex(void *value_ptr, size_t size);
+void print_address(void *value_ptr, size_t size);
 
 int main(int argc, char **argv){
     if (strcmp(argv[1], "int") != 0 && strcmp(argv[1], "float") != 0 && strcmp(argv[1], "char") != 0 && strcmp(argv[1], "string") != 0){
@@ -37,6 +38,7 @@ void *analyze(char **argv){
     }
     print_bits(value_ptr, size);
     print_hex(value_ptr, size);
+    print_address(value_ptr, size);
     return value_ptr;
 }
 
@@ -61,5 +63,14 @@ void print_hex(void *value_ptr, size_t size){
     for (int i = size - 1; i >= 0; i--){
         printf("%02x", p[i]);
     }
-    printf("\n");
+    printf("\n\n");
+}
+
+
+void print_address(void *value_ptr, size_t size){
+    printf("address of data: \n");
+    char *p = (char *)value_ptr;
+    for (int i = 0; i < size; i++){
+        printf("%p\n", (void*)(&p[i]));
+    }
 }
