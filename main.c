@@ -30,7 +30,7 @@ void *analyze(char **argv){
     } else if (strcmp(argv[1], "float") == 0){
         size = sizeof(float);
         value_ptr = malloc(sizeof(float));
-        *(float*)(value_ptr) = atof(argv[1]);
+        *(float*)(value_ptr) = atof(argv[2]);
     } else if (strcmp(argv[1], "char") == 0){
         size = sizeof(char);
         value_ptr = malloc(sizeof(char));
