@@ -14,19 +14,6 @@ void print_bits(void *data, size_t size){
     printf("\n");
 }
 
-void print_bits_arr(void *arr, size_t size, int num_el){
-    char *p = (char *) arr;
-    for (int i = 0; i < num_el; i++){
-        for (int j = (int) size - 1; j >= 0; j--){
-            for (int k = 7; k >= 0; k--){
-                int bit = (p[i * size + j] >> k) & 1;
-                printf("%d", bit);
-            }
-            printf(" ");
-        }
-        printf("\n");
-    }
-}
 
 
 void print_hex(void *data, size_t size){
@@ -86,4 +73,19 @@ void print_arr_addresses(void *arr, int len, size_t element_size){
         printf("%p ", (void*)(p + i));
     }
     printf("\n");
+}
+
+
+void print_bits_arr(void *arr, size_t size, int num_el){
+    char *p = (char *) arr;
+    for (int i = 0; i < num_el; i++){
+        for (int j = (int) size - 1; j >= 0; j--){
+            for (int k = 7; k >= 0; k--){
+                int bit = (p[i * size + j] >> k) & 1;
+                printf("%d", bit);
+            }
+            printf(" ");
+        }
+        printf("\n");
+    }
 }
